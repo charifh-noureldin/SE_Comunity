@@ -1,20 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const blogSchema = new Schema({
+const OrderSchema = new Schema({
   title: {
     type: String,
     required: true,
   },
-  snippet: {
+  subject: {
     type: String,
     required: true,
   },
-  body: {
+  description: {
     type: String,
     required: true
   },
 }, { timestamps: true });
 
-const Blog = mongoose.model('Blog', blogSchema);
-module.exports = Blog;
+const Order = mongoose.model('Order', OrderSchema);
+module.exports = Order;

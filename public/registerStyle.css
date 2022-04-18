@@ -1,0 +1,52 @@
+@media (min-width: 1025px) {
+    .h-custom {
+      height: 100vh !important;
+    }
+  }
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+    top: 15px;
+  }
+
+  .text-center {
+    text-align: left;
+}
+#colorlib-page > section > div > div > div > div > section > div > div > div > div > div > div > div:nth-child(1){
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(239, 10, 10))
+}
+#colorlib-page > section > div > div > div > div > section > div > div > div > div > div > div > div.col-lg-6.bg-indigo.text-white{
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgb(239, 10, 10))
+
+}
+  
+  .gradient-custom-2 {
+    /* fallback for old browsers */
+    /* background: #a1c4fd; */
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background-color: #4835d4;   */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgb(239, 10, 10))
+  }
+  
+  .bg-indigo {
+    background-color: #4835d4;
+    /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgb(239, 10, 10)) */
+  }
+  @media (min-width: 992px) {
+    .card-registration-2 .bg-indigo {
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+  @media (max-width: 991px) {
+    .card-registration-2 .bg-indigo {
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }

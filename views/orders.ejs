@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="orders content">
+    <h2>All Orders</h2>
+    <% if (orders.length > 0) { %>
+      <% orders.forEach(order => { %>
+        <a class="single" href="/orders/<%= order._id %>">
+
+        <h3 class="title"><%= order.title %></h3>
+        <p class="subject"><%= order.subject %></p>
+        </a>
+        
+      <% }) %>
+    <% } else { %>
+      <p>There are no orders to display...</p>
+    <% } %>
+  </div>
+  <%- include("./partials/page.ejs") %>
+</body>
+</html>
