@@ -17,10 +17,10 @@
     text-align: left;
 }
 #colorlib-page > section > div > div > div > div > section > div > div > div > div > div > div > div:nth-child(1){
-    background: linear-gradient(to right, rgb(0, 0, 0), rgb(239, 10, 10))
+  background: linear-gradient(to right, rgb(1,29,43), rgb(0,104,74));
 }
 #colorlib-page > section > div > div > div > div > section > div > div > div > div > div > div > div.col-lg-6.bg-indigo.text-white{
-    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgb(239, 10, 10))
+  background: linear-gradient(to right, rgb(1,29,43), rgb(0,104,74));
 
 }
   
@@ -31,7 +31,24 @@
     /* Chrome 10-25, Safari 5.1-6 */
     /* background-color: #4835d4;   */
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgb(239, 10, 10))
+      background: linear-gradient(to right, rgb(1,29,43), rgb(0,104,74));
+  }
+  p, h1, h2, h3, a, ul, label{
+    /* margin: 20px auto;
+    padding: 0; */
+    text-decoration: none;
+    color: greenyellow;
+  }
+  h2{
+    padding-top: 40px;
+    margin: 0;
+    list-style: none;
+    font-weight: 900;
+    font-family: cursive;
+    /* font-size: 14px; */
+    /* letter-spacing: 5px; */
+    /* text-transform: uppercase; */
+    color: rgba(255,255,255,1);
   }
   
   .bg-indigo {

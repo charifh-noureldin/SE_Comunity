@@ -1,25 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
-    body{
+body{
       max-width: 375px;
       margin: 0;
       padding: 0;
       font-family: 'Noto Serif', serif;
+      min-height: 500px;
+      background: linear-gradient(to right, rgb(1,29,43), rgb(0,104,74));
+
     }
     p, h1, h2, h3, a, ul, label{
       margin: 20px auto;
       padding: 0;
       text-decoration: none;
-      color: #f8b500;
+      color: greenyellow;
     }
 
     h2{
-      padding: 0;
+      padding-top: 40px;
       margin: 0;
       list-style: none;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
+      font-weight: 900;
+      font-family: cursive;
+      /* font-size: 14px; */
+      /* letter-spacing: 5px; */
+      /* text-transform: uppercase; */
+      color: rgba(255,255,255,1);
     }
 
     /* nav & footer styles */
@@ -62,6 +67,9 @@
     .content{
       margin: 20px;
     }
+    /* .about {
+      min-height: 500px;
+    } */
 
     /* index styles */
     .orders a{
@@ -71,7 +79,7 @@
       border-left: 6px solid crimson;
     }
     .orders a:hover h3{
-      color: crimson;
+      color: crimson !important;
     }
 
     /* details styles */
@@ -111,8 +119,8 @@
     }
     .create-order button{
       margin-top: 20px;
-      background: crimson;
-      color: white;
+      background: greenyellow;
+      color: black;
       padding: 6px;
       border: 0;
       font-size: 1.2em;
