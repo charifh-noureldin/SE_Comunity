@@ -4,6 +4,14 @@ const mongoose = require("mongoose");
 const orderRoutes = require("./routes/orderRoutes");
 const Order = require("./models/order");
 
+const bodyParser = require('body-parser');
+const path = require('path');
+const crypto = require('crypto');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const methodOverride = require('method-override');
+
 // express app
 const app = express();
 
@@ -18,6 +26,10 @@ mongoose
 
 // register view engine
 app.set("view engine", "ejs");
+
+app.use(bodyParser.json());
+app.use(methodOverride('_method'));
+app.set('view engine', 'ejs');
 
 // middleware & static files
 app.use(express.static("public"));
@@ -83,6 +95,62 @@ app.get("/details", (req, res) => {
 app.get("/sign-up", (req, res) => {
   res.render("sign-up", { title: "Sign-up" });
 });
+
+
+// Init gfs
+let gfs;
+// Create storage engine
+const storage = new GridFsStorage({
+  url: mongoURI,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
+        }
+        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'uploads'
+        };
+        resolve(fileInfo);
+      });
+    });
+  }
+});
+const upload = multer({ storage });
+
+// @route GET /
+// @desc Loads form
+app.get('/', (req, res) => {
+  gfs.files.find().toArray((err, files) => {
+    // Check if files
+    if (!files || files.length === 0) {
+      res.render('index', { files: false });
+    } else {
+      files.map(file => {
+        if (
+          file.contentType === 'image/jpeg' ||
+          file.contentType === 'image/png'
+        ) {
+          file.isImage = true;
+        } else {
+          file.isImage = false;
+        }
+      });
+      res.render('index', { files: files });
+    }
+  });
+});
+
+// @route POST /upload
+// @desc  Uploads file to DB
+app.post('/upload', upload.single('file'), (req, res) => {
+  // res.json({ file: req.file });
+  res.redirect('/');
+});
+
+
 
 // order routes
 app.use("/index", orderRoutes);

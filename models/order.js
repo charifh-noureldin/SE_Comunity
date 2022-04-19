@@ -14,10 +14,10 @@ const OrderSchema = new Schema({
     type: String,
     required: true
   },
-  file: {
-    type: data,
-    required: false
-  },
+  // file: {
+  //   type: binData,
+  //   required: false
+  // },
 }, { timestamps: true });
 
 const Order = mongoose.model('Order', OrderSchema);
