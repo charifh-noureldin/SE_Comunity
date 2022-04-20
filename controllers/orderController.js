@@ -41,17 +41,30 @@ const order_delete = (req, res) => {
   const id = req.params.id;
   Order.findByIdAndDelete(id)
     .then(result => {
-      res.json({ redirect: 'orders' });
+      res.json({ redirect: '/orders' });
     })
     .catch(err => {
       console.log(err);
     });
 }
 
+const order_get_all = (req, res) => { 
+    Order.find()
+    .then((result) => {
+      res.render('orders', { title: 'All Orders', orders: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+
+
 module.exports = {
   order_index, 
   order_details, 
   order_create_get, 
   order_create_post, 
-  order_delete
+  order_delete,
+  order_get_all
 }

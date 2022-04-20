@@ -6,7 +6,7 @@ const OrderSchema = new Schema({
     type: String,
     required: true,
   },
-  subject: {
+  major: {
     type: String,
     required: true,
   },
@@ -15,7 +15,8 @@ const OrderSchema = new Schema({
     required: true
   },
   // file: {
-  //   type: binData,
+  //   type: Buffer,
+  //   contentType: String,
   //   required: false
   // },
 }, { timestamps: true });

@@ -14,22 +14,24 @@
       <label for="title">Title:</label>
       <input type="text" id="title" name="title" required>
 
-      <label for="subject">Subject:</label>
-      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="subject" name="subject">
+      <label for="major">Choose Your Major:</label>
+      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="major" name="major">
         <option selected >Choose...</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
+        <option value="saab">BINFO</option>
+        <option value="fiat">BICS</option>
+        <option value="audi">BMATH</option>
+        <option value="audi">BPHY</option>
+        <option value="audi">BINFO-CEP</option>
         </select>
 
       <label for="description">Description:</label>
       <textarea id="description" name="description" required></textarea>
 
-      <label class="form-label" for="file">Default file input example</label>
-      <input type="file" class="form-control" id="file" name="file" />
+      <!-- <label class="form-label" for="file">Default file input example</label>
+      <input type="file" class="form-control" id="file" name="file" /> -->
 
       <button class="btn btn-success">Submit Request</button>
-      
+
     </form>
   </div>
     <%- include("./partials/page.ejs") %>
