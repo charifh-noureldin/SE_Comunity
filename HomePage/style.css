@@ -1,0 +1,78 @@
+/*.container {
+  width: 95%;
+  box-sizing: border-box;
+  height: 300px;
+  text-align: center;
+  border: solid 1px black;
+  font-family: "Open Sans";
+  font-weight: 200;
+  font-size: 16px;
+  margin: 50% 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+*/
+
+* {
+  margin: 10;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica;
+  font-size: 18px;
+  background-image: url(img/Belval.jpg);
+}
+
+.container {
+  margin: 200px auto;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+
+  width: 95%;
+  box-sizing: border-box;
+  height: 300px;
+  text-align: center;
+  margin: 50% 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.quote-box {
+  border: 5px solid #b90303;
+  padding: 30px 20px;
+  margin-bottom: 20px;
+}
+#quote {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 17px;
+}
+
+#btn {
+  align-self: center;
+  border: 2px solid #b90303;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  color: #b90303;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btn:focus {
+  outline: none;
+}
