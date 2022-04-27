@@ -14,6 +14,11 @@ const OrderSchema = new Schema({
     type: String,
     required: true
   },
+  comment: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment'
+
+  }]
   // file: {
   //   type: Buffer,
   //   contentType: String,

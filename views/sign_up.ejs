@@ -1,0 +1,100 @@
+
+    <%- include("./partials/head.ejs") %>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <section  class="h-100 gradient-form" >
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+              <div class=" rounded-3 text-black">
+                <div class="row g-0">
+                  <div class="col-lg-6">
+                    <div>
+      
+                      <div class="text-center">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                          style="width: 185px;" alt="logo">
+                        <h2 class="mt-1 mb-5 pb-1">Sign Up</h2>
+                      </div>
+      
+                      <form action='/user/sign_up' method="POST">
+      
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="studentid">Student ID:</label>
+                          <input type="text" id="studentid" name="studentid" class="form-control"
+                            placeholder="Student ID or email address" required pattern="^[A-Za-z0-9_-]*$" title="Not valid Student ID"/>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="studentname">Name:</label>
+                        <input type="text" id="studentname" name="studentname" class="form-control"
+                          placeholder="Enter Student Name" required/>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="studentsurname">Surname:</label>
+                      <input type="text" id="studentsurname" name="studentsurname" class="form-control"
+                        placeholder="Enter Student Surname" required/>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="studentemail">Email:</label>
+                    <input type="email" id="studentemail" name="studentemail" class="form-control"
+                      placeholder="Enter Uni Email" required pattern="[a-z0-9._%+-]+@uni.lu"
+                      title="Must use UNI email address @uni.lu"/>
+                  </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="password">Password:</label>
+                          <input type="password" placeholder="Password" id="password" name="password" 
+                          required class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                          title="Must contain at least one number and one uppercase and lowercase letter, 
+                          and at least 8 or more characters" autocomplete="current-password"/>
+
+                        </div>
+                        <div id="message">
+                          <h2>Password must contain the following:</h2>
+                          <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                          <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                          <p id="number" class="invalid">A <b>number</b></p>
+                          <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                        </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="confirmpassword">Confirm Password:</label>
+                        <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" class="form-control" required/>
+
+                      </div>
+
+                        <div class="text-center pt-1 mb-5 pb-1">
+                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Sign Up
+                            </button>
+                          <a class="text-muted" href="/user/log_in">Already have an account?</a>
+                        </div>
+      
+                      </form>
+      
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                      <h2>We are more than just a comunity!</h2>
+                      <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <script src="/js/signup_login.js"></script>
+
+  <%- include("./partials/page.ejs") %>
+
+
+</body>
+</html>

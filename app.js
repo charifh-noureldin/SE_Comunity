@@ -2,7 +2,9 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const orderRoutes = require("./routes/orderRoutes");
+const userRoutes = require("./routes/userRoutes");
 const Order = require("./models/order");
+const User = require("./models/user");
 
 // express app
 const app = express();
@@ -34,13 +36,14 @@ app.get("/about", (req, res) => {
   res.render("about", { title: "About" });
 });
 
-// registration
-app.get("/sign-up", (req, res) => {
-  res.render("sign-up", { title: "Sign-up" });
+app.get("/index", (req, res) => {
+  res.render("index", { title: "Home" });
 });
 
+
 // order routes
-app.use("/", orderRoutes);
+app.use("/user", userRoutes);
+app.use("/orders", orderRoutes);
 
 // 404 page
 app.use((req, res) => {

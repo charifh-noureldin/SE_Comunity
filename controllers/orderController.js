@@ -1,4 +1,6 @@
 const Order = require('../models/order');
+const User = require('../models/user');
+const Comment = require('../models/comment');
 
 const order_index = (req, res) => {
   Order.find().sort({ createdAt: -1 })
@@ -58,6 +60,27 @@ const order_get_all = (req, res) => {
     });
 }
 
+const add_comment = (req, res) => {
+  const comment = new Comment({
+    studentid: User.findById(req.body.studentid),
+    comment: req.body.comment
+  });
+  comment.save((err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    Order.findById(req.params.id, (err, order) => { 
+      if (err) {
+        console.log(err);
+      }
+      order.comments.push(comment);
+      order.save();
+      res.redirect('/orders/' + req.params.id);
+      });
+    });
+    res.redirect('/orders/' + req.params.id);
+  }
+  
 
 
 module.exports = {
@@ -66,5 +89,6 @@ module.exports = {
   order_create_get, 
   order_create_post, 
   order_delete,
-  order_get_all
+  order_get_all,
+  add_comment,
 }
