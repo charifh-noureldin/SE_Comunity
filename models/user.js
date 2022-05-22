@@ -1,40 +1,41 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    studentid: {
+    name: {
       type: String,
-      required: true,
-      maxlength: 10,
+      required: [true, "Student Name is required"],
+      maxlength: 32,
       trim: true,
     },
-    studentname: {
+    email: {
       type: String,
-      required: true,
-      maxlength: 10,
-      trim: true,
-    },
-    studentsurname: {
-      type: String,
-      required: true,
-      maxlength: 10,
-      trim: true,
-    },
-    studentemail: {
-      type: String,
-      required: true,
+      required: [true, "Student Email is required"],
       trim: true,
       unique: true,
+      lowercase: true,
+      validate: [validator.isEmail, "Invalid Email"],
+    },
+    photo: {
+      type: String,
     },
     password: {
       type: String,
-      required: true,
+      required: [true, "Password is required"],
+      minlength: 8,
     },
-    // confirmpassword: {
-    //   type: String,
-    //   required: true,
-    // },
+    confirmpassword: {
+      type: String,
+      required: [true, "Confirm Password is required"],
+      validate: {
+        validator: function (el) {
+          return el === this.password;
+        },
+        message: "Password and Confirm Password must be same",
+      }
+    },
   },
   { timestamps: true }
 );

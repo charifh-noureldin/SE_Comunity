@@ -8,27 +8,37 @@ const user_get_sign_up = (req, res) => {
 
 const user_post_sign_up = (req, res, next) => {
   try {
-    const salt = bcrypt.genSaltSync(10);
-    bcrypt.hash(req.body.password, salt, (err, hashres) => {
-      const user = new User({
-        studentid: req.body.studentid,
-        studentname: req.body.studentname,
-        studentsurname: req.body.studentsurname,
-        studentemail: req.body.studentemail,
-        password: hashres,
-      });
-      if (err) {
-        console.log(err);
-        req.redirect("user/sign-up");
-      }
-      user.save().then((result) => {
-        res.redirect("/user/log_in");
-      });
+    // const salt = bcrypt.genSaltSync(10);
+    // bcrypt.hash(req.body.password, salt, (err, hashres) => {
+    // const user = new User({
+    //   name: req.body.name,
+    //   email: req.body.email,
+    //   password: hashres,
+    //   confirmpassword: hashres,
+    // });
+    const newUser = User.create(req.body);
+
+    newUser.save().then((result) => {
+      res.redirect("/user/log_in");
     });
-  } catch {
-    res.redirect("/user/sign_up");
+  } catch (err) {
+    console.log(err);
+    res.redirect("/");
   }
 };
+
+//   if (err) {
+//     console.log(err);
+//     req.redirect("/user/sign-up");
+//   }
+//   user.save().then((result) => {
+//     res.redirect("/user/log_in");
+//   });
+// });
+//   } catch {
+//     res.redirect("/user/sign_up");
+//   }
+// };
 
 const user_get_log_in = (req, res) => {
   res.render("log_in", { title: "Log In" });
@@ -37,23 +47,20 @@ const user_get_log_in = (req, res) => {
 const user_post_log_in = (req, res) => {
   const studentid = req.body.studentid;
   const password = req.body.password;
-  User.findOne({ studentid: studentid })
-    .then((user) => {
-      if (!user) {
-        res.redirect("/user/sign_up");
-      }
-      bcrypt.compare(password, user.password).then((result) => {
-        if (result) {
-          const token = jwt.sign({ _id: user._id }, "secret");
-          res.cookie("token", token, { expire: new Date() + 9999 });
-          res.redirect("/user/profile");
-        } else {
-          res.redirect("/user/log_in");
-        }
-      });
+  User.findOne({ studentid: studentid }).then((user) => {
+    if (!user) {
+      res.redirect("/user/sign_up");
     }
-    )
-  
+    bcrypt.compare(password, user.password).then((result) => {
+      if (result) {
+        const token = jwt.sign({ _id: user._id }, "secret");
+        res.cookie("token", token, { expire: new Date() + 9999 });
+        res.redirect("/user/profile");
+      } else {
+        res.redirect("/user/log_in");
+      }
+    });
+  });
 };
 
 const user_delete = (req, res) => {
