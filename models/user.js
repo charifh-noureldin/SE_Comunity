@@ -30,11 +30,12 @@ const UserSchema = new Schema(
       type: String,
       required: [true, "Confirm Password is required"],
       validate: {
+        // this only for CREATE and SAVE operations (not for UPDATE)
         validator: function (el) {
           return el === this.password;
         },
         message: "Password and Confirm Password must be same",
-      }
+      },
     },
   },
   { timestamps: true }

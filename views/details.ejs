@@ -7,13 +7,22 @@
   <%- include("./partials/nav.ejs") %>
 
   <div class="details content">
-    <h3><%= order.title %></h3>
-      <!-- <h3 style="display: inline;"><%= order.title %></h3>
-      <h6 style="display: inline;"><%= order.createdAt %></h6> -->
+    <!-- <h3 id="title"><%= order.title %></h3> -->
+      <h3 style="display: inline;"><%= order.title %></h3>
+      <h6 style="display: inline;"><%= order.createdAt %></h6>
 
-    <h3><%= order.major %></h3>
+    <h3 id="major"><%= order.major %></h3>
     <div class="content">
-      <p><%= order.description %></p>
+      <p id="paragraph" name="paragraph"><%= order.description %></p>
+    </div>
+
+    <!-- <a class="delete" data-doc="<%= order._id %>">
+      <img src="/trashcan.svg" alt="delete icon">
+    </a> -->
+    <div class="text-center">
+      <a class="delete" data-doc="<%= order._id %>"><button id="trash" class=" rounded-0 btn-primary"><i class="fa fa-trash"></i> Trash</button></a>
+      <!-- <button class="rounded-0 btn-primary" id="edit"><i class="fa fa-edit"></i> Edit</button> -->
+      <!-- <button class="rounded-0 btn-primary" id="save"><i class="fa fa-folder"></i> Save</button> -->
     </div>
 
  <!-- comments -->
@@ -24,32 +33,42 @@
     <textarea class="form-control rounded-0" name="comment" placeholder="Leave a comment here" rows="4"></textarea>
   </div>
   <div class="form-group pt-2">
-    <button class="btn rounded-0 btn-primary w-100">Comment!</button>
+    <button class="rounded-0 btn-primary w-100">Comment 👉</button>
   </div>
 </form>
   </div>
 </div>
 
-  
-  
-    
-    <a class="delete" data-doc="<%= order._id %>">
-      <img src="/trashcan.svg" alt="delete icon">
-    </a>
   </div>
 
-  <script>
-    const trashcan = document.querySelector('a.delete');
-    trashcan.addEventListener('click', (e) => {
-      const endpoint = `/orders/${trashcan.dataset.doc}`;
-      fetch(endpoint, {
-        method: 'DELETE',
-      })
-      .then(response => response.json())
-      .then(data => window.location.href = data.redirect)
-      .catch(err => console.log(err));
-    });
-  </script>
+<!-- <script>
+  const save = document.querySelector('#save');
+  const paragraph = document.querySelector('#paragraph');
+
+  save.addEventListener('click', (paragraph) => {
+
+    const endpoint = '/orders/<%=order._id%>';
+    const method = 'PATCH';
+    const body = {
+      description: paragraph.value,
+      title: '<%=order.title%>',
+      major: '<%=order.major%>',      
+    };
+    fetch (endpoint, {
+      method: method,
+      body: body,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      window.location.href = '/orders';
+    })
+  });
+</script> -->
 
   <%- include("./partials/page.ejs") %>
 </body>

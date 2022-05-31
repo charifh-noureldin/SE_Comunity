@@ -16,12 +16,14 @@
         
       <% }) %>
     <% } else { %>
-      <p>There are no orders to display...</p>
+      <p class="text-center">There are no orders to display...</p>
     <% } %>
   </div>
-
+  <!-- <button class="rounded-0 btn-primary"><i class="fa fa-folder"></i> Save</button> -->
   <div class="d-flex align-items-center justify-content-center pb-4">
-    <button type="button" class="btn btn-danger"><a href="/orders/new-order"><span>Create new order</span></a></button>
+    <a href="/orders/new-order"><button class="bnt rounded-0 btn-primary w-100"> Create new order ✍️</button></a>
+    <!-- <button type="button" class="btn btn-danger"><a href="/orders/new-order"><span>Create new order</span></a></button> -->
+
   </div>
   
   <%- include("./partials/page.ejs") %>

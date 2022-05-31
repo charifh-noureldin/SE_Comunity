@@ -2,7 +2,6 @@ const Order = require('../models/order');
 const User = require('../models/user');
 const Comment = require('../models/comment');
 
-
 const order_details = async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
@@ -10,16 +9,34 @@ const order_details = async (req, res) => {
     // const comments = await Comment.find({ order: req.params.id });
     res.render('details', { order: order, title: 'Order details' , user: req.user, comments: order.comments});
   } catch (err) {
-    console.log(err);
+    res.render('404', { title: 'Order not found' });
   }
 };
+
+// const order_update = async (req, res, data) => {
+//   try {
+//     const order = await Order.findOneAndUpdate({ _id: req.params.id },
+//       {
+//         $set: {
+//           description: data.description,
+//         }
+//       }, { useFindAndModify: false });
+//     // res.redirect('/orders');
+//     // const user = await User.findById(order.user);
+//     // const comments = await Comment.find({ order: req.params.id });
+//     res.json({ redirect: '/orders'});
+//   } catch (err) {
+//     res.render('404', { title: 'Order not found' });
+//   }
+// };
+
 
 const order_create_get = async (req, res) => {
   try {
     const users = await User.find({});
     res.render('new-order', { title: 'Create order', users: users });
   } catch (err) {
-    console.log(err);
+    res.render('404', { title: 'Order not found' });
   }
 };
 
@@ -34,8 +51,7 @@ const order_create_post = async(req, res) => {
 
 const order_delete = async (req, res) => {
   try {
-    const id = req.params.id;
-    const order = await Order.findByIdAndDelete(id);
+    const order = await Order.findByIdAndDelete(req.params.id);
     res.json({ redirect: '/orders' });
   } catch (err) {
     res.render('404', { title: 'Order not found' });
@@ -80,5 +96,6 @@ module.exports = {
   order_create_post, 
   order_delete,
   order_get_all,
+  // order_update,
   // add_comment,
 }
