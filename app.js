@@ -2,7 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const orderRoutes = require("./routes/orderRoutes");
-const userRoutes = require("./routes/userRoutes");
+const authRoutes = require("./routes/authRoutes");
 const Order = require("./models/order");
 const User = require("./models/user");
 
@@ -42,7 +42,7 @@ app.get("/index", (req, res) => {
 
 
 // order routes
-app.use("/user", userRoutes);
+app.use("/user", authRoutes);
 app.use("/orders", orderRoutes);
 
 // 404 page

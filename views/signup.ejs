@@ -1,0 +1,32 @@
+
+    <%- include("./partials/head.ejs") %>
+    <%- include("./partials/nav.ejs") %>
+      <br>
+                      <div class="text-center">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                          style="width: 185px;" alt="logo">
+                        <h2 class="mt-1 mb-5 pb-1">Sign Up</h2>
+                      </div>
+                      <form action="/user/signup">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" />
+
+                        <label for="email">Email</label>
+                        <input type="text" name="email" required />
+
+                        <div class="email error"></div>
+
+                        <label for="password">Password</label>
+                        <input type="password" name="password" required />
+                        
+                        <div class="password error"></div>
+                        <button class="btn btn-primary btn-block">Sign up 👆</button>
+                      </form>
+
+    <script src="/js/signup.js"></script>
+
+  <%- include("./partials/page.ejs") %>
+
+
+</body>
+</html>
