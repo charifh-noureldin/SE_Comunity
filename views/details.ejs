@@ -1,11 +1,10 @@
 
 <%- include("./partials/head.ejs") %>
-  <%- include("./partials/nav.ejs") %>
 
   <div class="details content">
-    <!-- <h3 id="title"><%= order.title %></h3> -->
-      <h3 style="display: inline;"><%= order.title %></h3>
-      <h6 style="display: inline;"><%= order.createdAt %></h6>
+    <h3 id="title"><%= order.title %></h3>
+      <!-- <h3 style="display: inline;"><%= order.title %></h3>
+      <h6 style="display: inline;"><%= order.createdAt %></h6> -->
 
     <h3 id="major"><%= order.major %></h3>
     <div class="content">
@@ -22,7 +21,6 @@
     </div>
 
  <!-- comments -->
-<div class="container pt-5">
   <div class="container">
 <form action="/orders/<%=order._id%>" method="POST">
   <div class="form-group">
@@ -33,7 +31,6 @@
   </div>
 </form>
   </div>
-</div>
 
   </div>
 
