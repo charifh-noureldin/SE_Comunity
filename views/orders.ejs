@@ -1,6 +1,12 @@
 
 <%- include("./partials/head.ejs") %>
   <div class="orders content">
+    <ul>
+      <% if (user) { %>
+        <li>Welcome, <%= user.name %></li>
+        
+      <% } %>
+    </ul>
     <h2 class="text-center">All Orders</h2>
     <% if (orders.length > 0) { %>
       <% orders.forEach(order => { %>

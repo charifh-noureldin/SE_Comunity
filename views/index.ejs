@@ -1,11 +1,36 @@
-
   <%- include("./partials/head.ejs") %>
-
+  
       <!-- <h1>Website Menu #10</h1>
       <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3> -->
 
-      <h1 style="font-size: 100px; text-align: center">API</h1>
+      <div class="quotediv">
+        <ul>
+          <% if (user) { %>
+            <li>Welcome, <%= user.name %></li>
+            
+          <% } %>
+        </ul>
+        <div class="quote-box">
+          <p id="quote">Click the button below!</p>
+        </div>
+        <button class=" btn-primary">New Quote</button>
+      </div>
 
       <%- include("./partials/page.ejs") %>
+
+      <script>
+        const quote = document.querySelector("#quote");
+        const btn = document.querySelector("#btn");
+  
+        btn.addEventListener("click", getQuote);
+  
+        function getQuote() {
+          fetch("http://quotable.io/random")
+            .then((res) => res.json())
+            .then((data) => {
+              quote.innerHTML = data.content;
+            });
+        }
+      </script>
   </body>
 </html>

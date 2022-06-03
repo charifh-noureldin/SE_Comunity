@@ -2,11 +2,16 @@
 <%- include("./partials/head.ejs") %>
 
   <div class="about content ">
+    <ul>
+      <% if (user) { %>
+        <li>Welcome, <%= user.name %></li>
+        
+      <% } %>
+    </ul>
     <h2 class="text-center">About Us</h2>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam quaerat illo a modi tenetur ut blanditiis, illum quo consectetur recusandae excepturi natus impedit rem, tempora cum fuga quae in.</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam quaerat illo a modi tenetur ut blanditiis, illum quo consectetur recusandae excepturi natus impedit rem, tempora cum fuga quae in.</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam quaerat illo a modi tenetur ut blanditiis, illum quo consectetur recusandae excepturi natus impedit rem, tempora cum fuga quae in.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugit perspiciatis impedit excepturi neque id sed laborum ut magni nihil, veniam enim vero pariatur delectus suscipit corrupti, eveniet facere cupiditate explicabo, beatae veritatis in iste voluptatem. Quaerat commodi praesentium, fugiat eius quis hic temporibus culpa illo recusandae provident nihil tenetur vero beatae nesciunt! Voluptatem nam perferendis dolore porro blanditiis possimus, doloribus corporis consequuntur eius nesciunt, in adipisci at sit vel non assumenda aperiam harum dolor, ducimus beatae quibusdam modi quia. Doloribus beatae vel odit? Sint unde corporis pariatur saepe consectetur doloremque reiciendis ducimus veritatis asperiores, dolores, sequi voluptatem alias expedita vero accusantium impedit, molestiae veniam dolorum blanditiis. Accusamus temporibus veritatis nisi molestiae minus totam nemo illo eveniet dolorem fugiat recusandae amet atque expedita repudiandae, vero nostrum alias explicabo eum consectetur doloribus. Cupiditate esse nostrum earum ex doloribus vero beatae magnam deserunt dignissimos corrupti numquam nam, quis eos ipsum accusantium expedita maxime assumenda impedit saepe amet, vitae perferendis nisi! Mollitia architecto, ducimus quis adipisci necessitatibus corporis doloremque fuga voluptate provident pariatur accusamus, incidunt sit quaerat ratione enim temporibus eius quam eveniet saepe alias non repellat. Sapiente a sed excepturi tempore neque nulla assumenda, minima possimus facere temporibus delectus deleniti voluptatem praesentium.</p>
   </div>
   <%- include("./partials/page.ejs") %>
 </body>

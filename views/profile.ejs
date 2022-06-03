@@ -2,13 +2,14 @@
 <%- include("./partials/head.ejs") %>
 
   <div class="about content ">
-    <h2 class="text-center">Profile</h2>
     <ul>
-        <% if (user) { %>
-          <li>Welcome, <%= user.name %></li>
-          
-        <% } %>
-      </ul>
+      <% if (user) { %>
+        <li>Welcome, <%= user.name %></li>
+        
+      <% } %>
+    </ul>
+    <h2 class="text-center">Profile</h2>
+
     </div>
   <%- include("./partials/page.ejs") %>
 </body>
