@@ -54,7 +54,7 @@ app.get("/index", (req, res) => {
 
 // order routes
 app.use("/user", authRoutes);
-app.use("/orders", orderRoutes);
+app.use("/orders", requireAuth, orderRoutes);
 
 // 404 page
 app.use((req, res) => {
